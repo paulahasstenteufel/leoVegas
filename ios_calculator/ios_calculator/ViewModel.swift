@@ -13,7 +13,7 @@ class CalculatorViewModel: ObservableObject {
     @Published
     var result: Double = 0.0
 
-    func perform(operation: CalculatorOperation, operand1: Double, operand2: Double? = nil) { //TODO: Handle Optional
+    func perform(operation: Operation, operand1: Double, operand2: Double? = nil) { //TODO: Handle Optional
         switch operation {
         case .add:
             result = operand1 + (operand2 ?? 0)
