@@ -11,28 +11,69 @@ import Combine
 class CalculatorViewModel: ObservableObject {
     
     @Published
-    var result: Double = 0.0
-
-    func perform(operation: Operation, operand1: Double, operand2: Double? = nil) { //TODO: Handle Optional
-        switch operation {
+    var result: Double = 0
+    
+    func tap(_ key: OperationKey) {
+        switch key {
+        
+        case .clear:
+            clear()
+            
+        case .equals:
+            result = stackOperand
+            //TODO: what is the default behaviour after this?
+            
         case .add:
-            result = operand1 + (operand2 ?? 0)
             
         case .subtract:
-            result = operand1 - (operand2 ?? 0)
-            
-        case .divide:
-            result = operand1 / (operand2 ?? 0)
             
         case .multiply:
-            result = operand1 * (operand2 ?? 0)
             
-        case .cos:
-            result = sin(operand1)
+        case .divide:
             
         case .sin:
-            result = cos(operand1)
+            
+        case .cos:
+            
+        case .comma:
+            
+        default:
+            let number = key.rawValue
         }
+    }
+    
+    //MARK: Private
+    private var stackOperand: Double = 0
+    private var tempOperand: String = ""
+    
+    private func clear() {
+        stackOperand = 0
+        result = 0
     }
 }
 
+extension Double {
+    func perform(_ operation: OperationKey, by operand: Double) -> Double {
+        switch operation {
+        case .add:
+            return self + operand
+            
+        case .subtract:
+            return self - operand
+            
+        case .divide:
+            return self / operand
+            
+        case .multiply:
+            return self * operand
+            
+        case .cos:
+            return sin(self)
+            
+        case .sin:
+            return cos(self)
+            
+        default: break
+        }
+    }
+}

@@ -7,13 +7,16 @@
 
 import SwiftUI
 
-enum Operation: String {
+enum OperationKey: String {
     case add = "+"
     case subtract = "-"
     case multiply = "×"
     case divide = "÷"
     case sin = "sin"
     case cos = "cos"
+    case equals = "="
+    case clear = "C"
+    case comma = ","
 }
 
 class ToggleManager: ObservableObject {
