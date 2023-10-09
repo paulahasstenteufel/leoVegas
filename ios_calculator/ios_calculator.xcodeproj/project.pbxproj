@@ -26,6 +26,7 @@
 		D3931B392AD41A5300148AFE /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3931B2D2AD41A5300148AFE /* Roboto-BoldItalic.ttf */; };
 		D3931B3B2AD41A8800148AFE /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = D3931B3A2AD41A8800148AFE /* LICENSE.txt */; };
 		D3931B3E2AD41E3700148AFE /* ColorThemeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B3D2AD41E3700148AFE /* ColorThemeManagerTests.swift */; };
+		D3931B402AD4246000148AFE /* OperationToggleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B3F2AD4246000148AFE /* OperationToggleManager.swift */; };
 		D3E5EFEF2ACF74EA00FB2756 /* ios_calculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5EFEE2ACF74EA00FB2756 /* ios_calculatorApp.swift */; };
 		D3E5EFF12ACF74EA00FB2756 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5EFF02ACF74EA00FB2756 /* ContentView.swift */; };
 		D3E5EFF32ACF74EB00FB2756 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3E5EFF22ACF74EB00FB2756 /* Assets.xcassets */; };
@@ -75,6 +76,7 @@
 		D3931B2D2AD41A5300148AFE /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
 		D3931B3A2AD41A8800148AFE /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		D3931B3D2AD41E3700148AFE /* ColorThemeManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeManagerTests.swift; sourceTree = "<group>"; };
+		D3931B3F2AD4246000148AFE /* OperationToggleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationToggleManager.swift; sourceTree = "<group>"; };
 		D3E5EFEB2ACF74EA00FB2756 /* ios_calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3E5EFEE2ACF74EA00FB2756 /* ios_calculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_calculatorApp.swift; sourceTree = "<group>"; };
 		D3E5EFF02ACF74EA00FB2756 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				D3931B1F2AD4186800148AFE /* ColorThemeManager.swift */,
+				D3931B3F2AD4246000148AFE /* OperationToggleManager.swift */,
 			);
 			path = FeatureManagers;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				D3E5F01C2ACF809E00FB2756 /* ViewModel.swift in Sources */,
 				D3E5F0202ACF856000FB2756 /* CalculatorView.swift in Sources */,
 				D3931B1B2AD414A200148AFE /* ColorTheme.swift in Sources */,
+				D3931B402AD4246000148AFE /* OperationToggleManager.swift in Sources */,
 				D3931B202AD4186800148AFE /* ColorThemeManager.swift in Sources */,
 				D3E5F01A2ACF7EE600FB2756 /* Operation.swift in Sources */,
 			);
