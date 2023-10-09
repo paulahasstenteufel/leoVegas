@@ -18,17 +18,3 @@ enum OperationKey: String {
     case clear = "C"
     case comma = ","
 }
-
-class ToggleManager: ObservableObject {
-    let operation: Operation
-    
-    @Published
-    var isEnabled: Bool
-    
-    init(_ operation: Operation) {
-        self.operation = operation
-        self.isEnabled = true
-    }
-}
-
-
