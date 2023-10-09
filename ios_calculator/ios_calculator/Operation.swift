@@ -15,6 +15,18 @@ enum OperationKey: String {
     case sin = "sin"
     case cos = "cos"
     case equals = "="
-    case clear = "C"
-    case comma = ","
+}
+
+enum KeyboardKey: String {
+    case keypad0 = "0"
+    case keypad1 = "1"
+    case keypad2 = "2"
+    case keypad3 = "3"
+    case keypad4 = "4"
+    case keypad5 = "5"
+    case keypad6 = "6"
+    case keypad7 = "7"
+    case keypad8 = "8"
+    case keypad9 = "9"
+    case comma = "."
 }

@@ -13,67 +13,87 @@ class CalculatorViewModel: ObservableObject {
     @Published
     var result: Double = 0
     
+    var rawInput: String = ""
+    
     func tap(_ key: OperationKey) {
         switch key {
-        
-        case .clear:
-            clear()
-            
         case .equals:
-            result = stackOperand
-            //TODO: what is the default behaviour after this?
+            if let value = solve() {
+                result = value
+            }
             
-        case .add:
-            
-        case .subtract:
-            
-        case .multiply:
-            
-        case .divide:
-            
-        case .sin:
-            
-        case .cos:
-            
-        case .comma:
+            nextOperand = nil
+            nextOperation = nil
+            stackResult = nil
             
         default:
-            let number = key.rawValue
+            stackResult = solve()
+            
+            nextOperand = rawInput.number
+            nextOperation = key
+        }
+    }
+    
+    func tap(_ key: KeyboardKey) {
+        switch key {
+        case .keypad0:
+            if rawInput.first == "0" {
+                break
+            }
+        
+        case .comma:
+            if rawInput.contains(".") {
+                return
+            }
+            
+        default:
+            rawInput += key.rawValue
         }
     }
     
     //MARK: Private
-    private var stackOperand: Double = 0
-    private var tempOperand: String = ""
+    private var stackResult: Double?
+    private var nextOperation: OperationKey?
+    private var nextOperand: Double?
+    
+    private func solve() -> Double? {
+        guard
+            let number = rawInput.number,
+            let operation = nextOperation,
+            let operand = nextOperand
+        else {
+            return nil
+            //TODO: Error Handling
+        }
+        
+        return number.perform(operation, by: operand)
+    }
     
     private func clear() {
-        stackOperand = 0
+        stackResult = 0
         result = 0
+        rawInput = ""
+        nextOperation = nil
+        nextOperand = nil
     }
 }
 
-extension Double {
+fileprivate extension String {
+    var number: Double? {
+        try? Double(self, format: .number)
+    }
+}
+
+fileprivate extension Double {
     func perform(_ operation: OperationKey, by operand: Double) -> Double {
         switch operation {
-        case .add:
-            return self + operand
-            
-        case .subtract:
-            return self - operand
-            
-        case .divide:
-            return self / operand
-            
-        case .multiply:
-            return self * operand
-            
-        case .cos:
-            return sin(self)
-            
-        case .sin:
-            return cos(self)
-            
-        default: break
+        case .add: return self + operand
+        case .subtract: return self - operand
+        case .divide: return self / operand
+        case .multiply: return self * operand
+        case .cos: return sin(self)
+        case .sin: return cos(self)
+        case .equals: return self
         }
     }
 }
