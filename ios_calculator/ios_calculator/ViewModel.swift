@@ -43,7 +43,7 @@ class CalculatorViewModel: ObservableObject {
         
         case .comma:
             if rawInput.contains(".") {
-                return
+                break
             }
             
         default:
@@ -91,8 +91,8 @@ fileprivate extension Double {
         case .subtract: return self - operand
         case .divide: return self / operand
         case .multiply: return self * operand
-        case .cos: return sin(self)
-        case .sin: return cos(self)
+        case .cos: return cos(self)
+        case .sin: return sin(self)
         case .equals: return self
         }
     }
