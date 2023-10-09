@@ -10,6 +10,27 @@ import SwiftUI
 enum Theme {
     case cold
     case warm
+    
+    var primaryDark: Color {
+        switch self {
+        case .cold: return Cold.primaryDark
+        case .warm: return Warm.primaryDark
+        }
+    }
+    
+    var primaryMedium: Color {
+        switch self {
+        case .cold: return Cold.primaryMedium
+        case .warm: return Warm.primaryMedium
+        }
+    }
+    
+    var primaryLight: Color {
+        switch self {
+        case .cold: return Cold.primaryLight
+        case .warm: return Warm.primaryLight
+        }
+    }
 }
 
 extension Theme {
@@ -20,9 +41,9 @@ extension Theme {
     }
 
     enum Warm {
-        static let primaryDark = Color(red: 0, green: 0.196, blue: 0.498, opacity: 1)
-        static let primaryMedium = Color(red: 0, green: 0.353, blue: 0.686, opacity: 1)
-        static let primaryLight = Color(red: 0, green: 0.196, blue: 0.498, opacity: 1)
+        static let primaryDark = Color(red: 0.498, green: 0.196, blue: 0, opacity: 1)
+        static let primaryMedium = Color(red: 0.686, green: 0.353, blue: 0, opacity: 1)
+        static let primaryLight = Color(red: 0.498, green: 0.196, blue: 0, opacity: 1)
     }
 }
 
