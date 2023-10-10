@@ -10,31 +10,21 @@ import SwiftUI
 struct CalculatorView: View {
     
     var body: some View {
-        VStack {
-                
+        VStack(spacing:10) {
+            DisplayView(viewModel: viewModel)
+                .foregroundColor(Theme.Neutral.soft)
+            
+            NumberedKeyboardView(viewModel: viewModel)
         }
     }
     
     //MARK: Private
     @StateObject
     private var viewModel = CalculatorViewModel()
-    
-    private var inputView: some View {
-        HStack {
-            Text(viewModel.rawInput)
-                .padding(.leading)
-            
-            Spacer()
-            
-            Image(systemName: "xmark")
-                .padding(.trailing)
-                .onTapGesture {
-                    viewModel.clear()
-                }
-        }
-        .font(Littera.heading)
-        .padding([.top, .bottom], 30)
-        .border(Chroma.Neutral.medium, width: 1)
-        .cornerRadius(DrawingConstants.cornerRadius)
+}
+
+struct CalculatorView_Previews: PreviewProvider {
+    static var previews: some View {
+        CalculatorView()
     }
 }
