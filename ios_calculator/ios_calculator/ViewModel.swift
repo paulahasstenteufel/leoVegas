@@ -11,15 +11,13 @@ import Combine
 class CalculatorViewModel: ObservableObject {
     
     @Published
-    var result: Double = 0
-    
-    var rawInput: String = ""
+    var display: String = ""
     
     func tap(_ key: OperationKey) {
         switch key {
         case .equals:
             if let value = solve() {
-                result = value
+                setResult(stack: value)
             }
             
             nextOperand = nil
@@ -52,9 +50,18 @@ class CalculatorViewModel: ObservableObject {
     }
     
     //MARK: Private
+    internal var maximumDigits: Int = 0
+    
     private var stackResult: Double?
     private var nextOperation: OperationKey?
     private var nextOperand: Double?
+    
+    private var rawInput: String = ""
+    private var result: Double = 0 {
+        didSet {
+            display = result.display
+        }
+    }
     
     private func solve() -> Double? {
         guard
@@ -67,6 +74,15 @@ class CalculatorViewModel: ObservableObject {
         }
         
         return number.perform(operation, by: operand)
+    }
+    
+    private func setResult(stack: Double) {
+        guard stack.overflows(maximumDigits) else {
+            //TODO: Handle overflow, what is the default calculator behavior?
+            return
+        }
+        
+        result = stack
     }
     
     private func clear() {
@@ -85,6 +101,10 @@ fileprivate extension String {
 }
 
 fileprivate extension Double {
+    var display: String {
+        String(self)
+    }
+    
     func perform(_ operation: OperationKey, by operand: Double) -> Double {
         switch operation {
         case .add: return self + operand
@@ -95,5 +115,9 @@ fileprivate extension Double {
         case .sin: return sin(self)
         case .equals: return self
         }
+    }
+    
+    func overflows(_ maxDigits: Int) -> Bool {
+        self.description.count > maxDigits
     }
 }

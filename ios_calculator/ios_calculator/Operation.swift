@@ -29,4 +29,13 @@ enum KeyboardKey: String {
     case keypad8 = "8"
     case keypad9 = "9"
     case comma = "."
+    
+    static var allCases: [Self] {
+        [
+            .keypad7, .keypad8, .keypad9,
+            .keypad4, .keypad5, .keypad6,
+            .keypad1, .keypad2, .keypad3,
+            .keypad0, .comma
+        ]
+    }
 }
