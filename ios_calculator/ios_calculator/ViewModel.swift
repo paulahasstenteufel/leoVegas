@@ -32,23 +32,6 @@ class CalculatorViewModel: ObservableObject {
         }
     }
     
-    func tap(_ key: KeyboardKey) {
-        switch key {
-        case .keypad0:
-            if rawInput.first == "0" {
-                break
-            }
-        
-        case .comma:
-            if rawInput.contains(".") {
-                break
-            }
-            
-        default:
-            rawInput += key.rawValue
-        }
-    }
-    
     //MARK: Private
     internal var maximumDigits: Int = 0
     
@@ -56,7 +39,7 @@ class CalculatorViewModel: ObservableObject {
     private var nextOperation: OperationKey?
     private var nextOperand: Double?
     
-    private var rawInput: String = ""
+    internal var rawInput: String = ""
     private var result: Double = 0 {
         didSet {
             display = result.display
