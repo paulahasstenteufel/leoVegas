@@ -10,9 +10,8 @@ import SwiftUI
 struct CalculatorView: View {
     
     var body: some View {
-        VStack(spacing:10) {
+        VStack(spacing: 10) {
             DisplayView(viewModel: viewModel)
-                .foregroundColor(Theme.Neutral.soft)
             
             NumberedKeyboardView(viewModel: viewModel)
         }

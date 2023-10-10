@@ -42,9 +42,8 @@ struct GridView: View {
             }
         }
         .font(Fonts.heading)
-//        .frame(maxWidth: .infinity)
         .contentShape(Rectangle())
-        .foregroundColor(ThemeManager.shared.currentTheme.primaryMedium)
+        .foregroundColor(theme.primaryMedium)
         .onAppear {
             //TODO: Load user's saved theme?
         }
@@ -52,4 +51,5 @@ struct GridView: View {
     
     //MARK: Private
     private let shape = RoundedRectangle(cornerRadius: Dimension.keyCorner)
+    private let theme = ThemeManager.shared.currentTheme
 }

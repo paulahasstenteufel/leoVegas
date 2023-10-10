@@ -15,7 +15,7 @@ enum Fonts {
     static let sidebar: Font = .roboto(.regular, size: 14)
     static let body: Font = .roboto(.regular, size: 20)
     static let keyboard: Font = .roboto(.regular, size: 50)
-    static let display: Font = .roboto(.regular, size: 100)
+    static let display: Font = .system(size: 30, weight: .regular).monospacedDigit() //.roboto(.regular, size: 70)
 }
 
 extension Font {
