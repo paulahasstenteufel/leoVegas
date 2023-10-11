@@ -11,7 +11,7 @@ import Combine
 class CalculatorViewModel: ObservableObject {
     
     @Published
-    var display: String = ""
+    var display: String = "0"
     
     func tap(_ key: OperationKey) {
         switch key {
