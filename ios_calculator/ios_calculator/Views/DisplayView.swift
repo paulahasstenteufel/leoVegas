@@ -8,21 +8,16 @@
 import SwiftUI
 
 struct DisplayView: View {
+    typealias ViewWidthKey = OrientationPreferenceKey<CGFloat>
+    
     let viewModel: CalculatorViewModel
     
     var body: some View {
         display
             .lineLimit(1)
             .truncationMode(.tail)
-            .overlay {
-                GeometryReader { geometry in
-                    let size = geometry.size
-                    
-                    Color.clear
-                        .onChange(of: size.width) { width in
-                            viewModel.calculateMaxDigits(for: width)
-                        }
-                }
+            .onPreferenceChange(ViewWidthKey.self) { width in
+                viewModel.calculateMaxDigits(for: width)
             }
     }
     
@@ -31,25 +26,30 @@ struct DisplayView: View {
     
     private var display: some View {
         ZStack(alignment: .trailing) {
-            GeometryReader { geometry in
-                let size = geometry.size
-                
-                RoundedRectangle(cornerRadius: Dimension.keyCorner)
-                    .stroke(lineWidth: Dimension.line)
-                    .foregroundColor(theme.primaryMedium)
-//                    .border(Theme.Neutral.soft, width: Dimension.line)
-                    .frame(width: .infinity, height: size.height * 0.3)
-                
-                HStack {
-                    Spacer()
-//                    Text(viewModel.display)
-                    Text("9834510389")
-                }
-                .font(Fonts.display)
-                .padding(Dimension.primary)
-                .foregroundColor(Theme.Neutral.strongest)
-            }
+            RoundedRectangle(cornerRadius: Dimension.keyCorner)
+                .stroke(lineWidth: Dimension.line)
+                .foregroundColor(theme.primaryMedium)
+                .frame(maxWidth: .infinity)
+
+            textView
         }
+        .fixedSize(horizontal: false, vertical: true)
+    }
+    
+    private var textView: some View {
+        HStack {
+            Spacer()
+            Text(viewModel.display)
+        }
+        .font(Fonts.display)
+        .padding(Dimension.primary)
+        .foregroundColor(Theme.Neutral.strongest)
+        .background(GeometryReader { inner in
+            let width = inner.size.width
+
+            Color.clear
+                .preference(key: ViewWidthKey.self, value: width)
+        })
     }
 }
 
