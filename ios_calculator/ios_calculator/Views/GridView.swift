@@ -12,44 +12,41 @@ struct GridView: View {
     
     var body: some View {
         ZStack {
-            switch key {
-            case .keypad0:
-                shape
-                    .stroke(lineWidth: Dimension.line)
-                    .aspectRatio(Dimension.aspectRect, contentMode: .fill)
-                
-                Text(key.rawValue)
-                    .padding()
-                
-            case .comma:
-                shape
-                    .fill()
-                    .aspectRatio(Dimension.aspectSquare, contentMode: .fit)
-                
-                Text(key.rawValue)
-                    .foregroundColor(.white)
-                
-            case .empty:
-                EmptyView()
-                
-            default:
-                shape
-                    .stroke(lineWidth: Dimension.line)
-                    .aspectRatio(Dimension.aspectSquare, contentMode: .fit)
-                
-                Text(key.rawValue)
-                    .padding()
-            }
+            shapeView
+            
+            Text(key.rawValue)
+                .font(Fonts.heading)
+                .foregroundColor(key == .comma ? .white : theme.primaryMedium)
+                .padding()
         }
-        .font(Fonts.heading)
         .contentShape(Rectangle())
-        .foregroundColor(theme.primaryMedium)
         .onAppear {
             //TODO: Load user's saved theme?
         }
     }
     
     //MARK: Private
-    private let shape = RoundedRectangle(cornerRadius: Dimension.keyCorner)
-    private let theme = ThemeManager.shared.currentTheme
+    private let theme = ThemeManager.shared.currentTheme //TODO: Pass down as environmentObj later
+    
+    @ViewBuilder
+    private var shapeView: some View {
+        let shape = RoundedRectangle(cornerRadius: Dimension.keyCorner)
+        
+        switch key {
+        case .keypad0:
+            shape
+                .stroke(lineWidth: Dimension.line)
+                .aspectRatio(Dimension.aspectRect, contentMode: .fill)
+            
+        case .comma:
+            shape
+                .fill()
+                .aspectRatio(Dimension.aspectSquare, contentMode: .fit)
+            
+        default:
+            shape
+                .stroke(lineWidth: Dimension.line)
+                .aspectRatio(Dimension.aspectSquare, contentMode: .fit)
+        }
+    }
 }
