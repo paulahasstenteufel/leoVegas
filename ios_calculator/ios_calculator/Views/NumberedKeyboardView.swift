@@ -13,22 +13,26 @@ struct NumberedKeyboardView: View {
     var body: some View {
         LazyVGrid(columns: columns) {
             ForEach(allKeys, id: \.self) { key in
-                GridView(key: key)
-                    .onTapGesture {
-                        viewModel.tap(key)
-                    }
+                gridItem(for: key)
             }
         }
+        .aspectRatio(3/4, contentMode: .fit)
     }
     
     //MARK: Private
+    private let allKeys = Array(KeyboardKey.allCases)
     private let columns = [
         GridItem(.flexible(), alignment: .leading),
         GridItem(),
         GridItem()
     ]
     
-    private let allKeys = Array(KeyboardKey.allCases)
+    private func gridItem(for key: KeyboardKey) -> some View {
+        KeyboardKeyView(key: key)
+            .onTapGesture {
+                viewModel.tap(key)
+            }
+    }
 }
 
 extension CalculatorViewModel {

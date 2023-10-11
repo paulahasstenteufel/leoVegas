@@ -1,5 +1,5 @@
 //
-//  GridView.swift
+//  KeyboardKeyView.swift
 //  ios_calculator
 //
 //  Created by Paula Hasstenteufel Denz on 09/10/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GridView: View {
+struct KeyboardKeyView: View {
     let key: KeyboardKey
     
     var body: some View {
@@ -19,6 +19,7 @@ struct GridView: View {
                 .foregroundColor(key == .comma ? .white : theme.primaryMedium)
                 .padding()
         }
+        .foregroundColor(theme.primaryMedium)
         .contentShape(Rectangle())
         .onAppear {
             //TODO: Load user's saved theme?
@@ -42,6 +43,9 @@ struct GridView: View {
             shape
                 .fill()
                 .aspectRatio(Dimension.aspectSquare, contentMode: .fit)
+            
+        case .empty:
+            Color.clear
             
         default:
             shape

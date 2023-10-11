@@ -30,7 +30,7 @@
 		D3931B432AD43DE300148AFE /* FontsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B422AD43DE300148AFE /* FontsTests.swift */; };
 		D3931B462AD574B700148AFE /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B452AD574B700148AFE /* DisplayView.swift */; };
 		D3931B482AD5B70400148AFE /* NumberedKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B472AD5B70400148AFE /* NumberedKeyboardView.swift */; };
-		D3931B4A2AD5B7A500148AFE /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B492AD5B7A500148AFE /* GridView.swift */; };
+		D3931B4A2AD5B7A500148AFE /* KeyboardKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B492AD5B7A500148AFE /* KeyboardKeyView.swift */; };
 		D3931B4D2AD6273500148AFE /* Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B4C2AD6273500148AFE /* Orientation.swift */; };
 		D3E5EFEF2ACF74EA00FB2756 /* ios_calculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5EFEE2ACF74EA00FB2756 /* ios_calculatorApp.swift */; };
 		D3E5EFF12ACF74EA00FB2756 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5EFF02ACF74EA00FB2756 /* ContentView.swift */; };
@@ -85,7 +85,7 @@
 		D3931B422AD43DE300148AFE /* FontsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsTests.swift; sourceTree = "<group>"; };
 		D3931B452AD574B700148AFE /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
 		D3931B472AD5B70400148AFE /* NumberedKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberedKeyboardView.swift; sourceTree = "<group>"; };
-		D3931B492AD5B7A500148AFE /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		D3931B492AD5B7A500148AFE /* KeyboardKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardKeyView.swift; sourceTree = "<group>"; };
 		D3931B4C2AD6273500148AFE /* Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
 		D3E5EFEB2ACF74EA00FB2756 /* ios_calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3E5EFEE2ACF74EA00FB2756 /* ios_calculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_calculatorApp.swift; sourceTree = "<group>"; };
@@ -189,7 +189,7 @@
 			children = (
 				D3931B452AD574B700148AFE /* DisplayView.swift */,
 				D3931B472AD5B70400148AFE /* NumberedKeyboardView.swift */,
-				D3931B492AD5B7A500148AFE /* GridView.swift */,
+				D3931B492AD5B7A500148AFE /* KeyboardKeyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -415,7 +415,7 @@
 				D3931B1D2AD414A200148AFE /* Fonts.swift in Sources */,
 				D3E5EFF12ACF74EA00FB2756 /* ContentView.swift in Sources */,
 				D3E5EFEF2ACF74EA00FB2756 /* ios_calculatorApp.swift in Sources */,
-				D3931B4A2AD5B7A500148AFE /* GridView.swift in Sources */,
+				D3931B4A2AD5B7A500148AFE /* KeyboardKeyView.swift in Sources */,
 				D3931B1C2AD414A200148AFE /* Dimensions.swift in Sources */,
 				D3931B482AD5B70400148AFE /* NumberedKeyboardView.swift in Sources */,
 				D3E5F01C2ACF809E00FB2756 /* ViewModel.swift in Sources */,
