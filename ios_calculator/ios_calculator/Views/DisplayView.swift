@@ -8,16 +8,14 @@
 import SwiftUI
 
 struct DisplayView: View {
-    typealias ViewWidthKey = OrientationPreferenceKey<CGFloat>
-    
     let viewModel: CalculatorViewModel
     
     var body: some View {
         display
             .lineLimit(1)
             .truncationMode(.tail)
-            .onPreferenceChange(ViewWidthKey.self) { width in
-                viewModel.calculateMaxDigits(for: width)
+            .onSizeChange { size in
+                viewModel.calculateMaxDigits(for: size.width)
             }
     }
     
@@ -44,12 +42,6 @@ struct DisplayView: View {
         .font(Fonts.display)
         .padding(Dimension.primary)
         .foregroundColor(Theme.Neutral.strongest)
-        .background(GeometryReader { inner in
-            let width = inner.size.width
-
-            Color.clear
-                .preference(key: ViewWidthKey.self, value: width)
-        })
     }
 }
 

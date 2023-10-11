@@ -7,10 +7,33 @@
 
 import SwiftUI
 
-struct OrientationPreferenceKey<T>: PreferenceKey where T: Comparable {
-    static var defaultValue: T { fatalError("Provide a default value when using") }
+struct OrientationPreferenceKey: PreferenceKey {
+    static var defaultValue: CGSize { .init(width: 0, height: 0) }
+
+    static func reduce(value: inout CGSize, nextValue: () -> CGSize) {
+        let next = nextValue()
+        value.width = max(value.width, next.width)
+        value.height = max(value.height, next.height)
+    }
+}
+
+struct SizeChange: ViewModifier {
+    var action: (CGSize) -> Void
     
-    static func reduce(value: inout T, nextValue: () -> T) {
-        value = max(value, nextValue())
+    func body(content: Content) -> some View {
+        content
+            .background(GeometryReader { inner in
+                let size = inner.size
+                Color.clear.preference(
+                        key: OrientationPreferenceKey.self,
+                        value: .init(width: size.width, height: size.height)
+                    )
+            })
+    }
+}
+
+extension View {
+    func onSizeChange(action: @escaping (CGSize) -> Void) -> some View {
+        self.modifier(SizeChange(action: action))
     }
 }
