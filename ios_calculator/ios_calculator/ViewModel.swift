@@ -33,8 +33,9 @@ class CalculatorViewModel: ObservableObject {
     }
     
     //MARK: Private
-    internal var maximumDigits: Int = 0
+    private var calculator = Calculator()
     
+    internal var maximumDigits: Int = 0
     private var stackResult: Double?
     private var nextOperation: OperationKey?
     private var nextOperand: Double?
@@ -48,16 +49,17 @@ class CalculatorViewModel: ObservableObject {
     }
     
     private func solve() -> Double? {
-        guard
-            let number = rawInput.number,
-            let operation = nextOperation,
-            let operand = nextOperand
-        else {
+        do {
+            return try calculator.solve(
+                input: rawInput.number,
+                nextOperation: nextOperation,
+                nextOperand: nextOperand
+            )
+            
+        } catch {
+            //TODO: Handle error
             return nil
-            //TODO: Error Handling
         }
-        
-        return number.perform(operation, by: operand)
     }
     
     private func setResult(stack: Double) {
@@ -69,7 +71,7 @@ class CalculatorViewModel: ObservableObject {
         result = stack
     }
     
-    private func clear() {
+    private func clearAll() {
         stackResult = 0
         result = 0
         rawInput = "0"
@@ -87,18 +89,6 @@ fileprivate extension String {
 fileprivate extension Double {
     var display: String {
         String(self)
-    }
-    
-    func perform(_ operation: OperationKey, by operand: Double) -> Double {
-        switch operation {
-        case .add: return self + operand
-        case .subtract: return self - operand
-        case .divide: return self / operand
-        case .multiply: return self * operand
-        case .cos: return cos(self)
-        case .sin: return sin(self)
-        case .equals: return self
-        }
     }
     
     func overflows(_ maxDigits: Int) -> Bool {
