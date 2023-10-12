@@ -11,9 +11,10 @@ struct NumberedKeyboardView: View {
     let viewModel: CalculatorViewModel
     
     var body: some View {
-        LazyVGrid(columns: columns) {
+        LazyVGrid(columns: columns, alignment: .trailing, spacing: 0) {
             ForEach(allKeys, id: \.self) { key in
                 gridItem(for: key)
+                    .padding(.horizontal, -4)
             }
         }
         .aspectRatio(3/4, contentMode: .fit)
@@ -24,7 +25,7 @@ struct NumberedKeyboardView: View {
     private let columns = [
         GridItem(.flexible(), alignment: .leading),
         GridItem(),
-        GridItem()
+        GridItem(.flexible(), alignment: .leading)
     ]
     
     private func gridItem(for key: KeyboardKey) -> some View {

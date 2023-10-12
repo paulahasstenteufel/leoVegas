@@ -7,14 +7,13 @@
 
 import SwiftUI
 
-enum Dimension: CGFloat {
-    case primary = 18
-    case small = 10
-//    case specialKeyWidth = 250
-//    static let keyboardFrame: CGSize = .init(width: 350, height: 500)
+enum Dimension {
+    static let primary = 18.0
+    static let small = 10.0
+//    static let specialKeyWidth = 250
     
     static let keyCorner = 4.0
-    static let aspectSquare = 1.2
-    static let aspectRect = 2.48
+    static let aspectSquare: CGFloat = 9/8
+    static let aspectRect: CGFloat = 2/1
     static let line = 2.0
 }

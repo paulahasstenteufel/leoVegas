@@ -17,7 +17,6 @@ struct KeyboardKeyView: View {
             Text(key.rawValue)
                 .font(Fonts.heading)
                 .foregroundColor(key == .comma ? .white : theme.primaryMedium)
-                .padding()
         }
         .foregroundColor(theme.primaryMedium)
         .contentShape(Rectangle())
@@ -41,8 +40,9 @@ struct KeyboardKeyView: View {
             
         case .comma:
             shape
-                .fill()
-                .aspectRatio(Dimension.aspectSquare, contentMode: .fit)
+                .stroke(lineWidth: Dimension.line)
+                .background(theme.primaryMedium)
+                .aspectRatio(contentMode: .fill)
             
         case .empty:
             Color.clear
@@ -50,7 +50,7 @@ struct KeyboardKeyView: View {
         default:
             shape
                 .stroke(lineWidth: Dimension.line)
-                .aspectRatio(Dimension.aspectSquare, contentMode: .fit)
+                .aspectRatio(Dimension.aspectSquare, contentMode: .fill)
         }
     }
 }
