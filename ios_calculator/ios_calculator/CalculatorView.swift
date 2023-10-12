@@ -10,11 +10,14 @@ import SwiftUI
 struct CalculatorView: View {
     
     var body: some View {
-        VStack(spacing: 10) {
-            DisplayView(viewModel: viewModel)
+        VStack(alignment: .trailing, spacing: 10) {
             
-            NumberedKeyboardView(viewModel: viewModel)
+            DisplayView()
+            
+            NumberedKeyboardView()
         }
+        .padding(Dimension.primary)
+        .environmentObject(viewModel)
     }
     
     //MARK: Private

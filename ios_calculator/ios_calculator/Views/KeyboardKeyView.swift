@@ -26,6 +26,9 @@ struct KeyboardKeyView: View {
     }
     
     //MARK: Private
+//    @EnvironmentObject
+//    private var theme: ThemeManager
+    
     private let theme = ThemeManager.shared.currentTheme //TODO: Pass down as environmentObj later
     
     @ViewBuilder

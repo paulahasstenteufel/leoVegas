@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct DisplayView: View {
-    let viewModel: CalculatorViewModel
-    
     var body: some View {
         display
             .lineLimit(1)
@@ -20,14 +18,14 @@ struct DisplayView: View {
     }
     
     //MARK: Private
-    private let theme = ThemeManager.shared.currentTheme
+    @EnvironmentObject
+    private var viewModel: CalculatorViewModel
     
     private var display: some View {
         ZStack(alignment: .trailing) {
             RoundedRectangle(cornerRadius: Dimension.keyCorner)
                 .stroke(lineWidth: Dimension.line)
-                .foregroundColor(theme.primaryMedium)
-                .frame(maxWidth: .infinity)
+                .foregroundColor(Theme.Neutral.medium)
 
             textView
         }
@@ -35,13 +33,10 @@ struct DisplayView: View {
     }
     
     private var textView: some View {
-        HStack {
-            Spacer()
-            Text(viewModel.display)
-        }
-        .font(Fonts.display)
-        .padding(Dimension.primary)
-        .foregroundColor(Theme.Neutral.strongest)
+        Text(viewModel.display ?? "0")
+            .font(Fonts.display)
+            .padding(Dimension.small)
+            .foregroundColor(Theme.Neutral.strongest)
     }
 }
 
@@ -56,8 +51,6 @@ extension CalculatorViewModel {
 // MARK: Canvas
 struct DisplayView_Previews: PreviewProvider {
     static var previews: some View {
-        DisplayView(viewModel: viewModel)
+        DisplayView()
     }
-    
-    private static let viewModel = CalculatorViewModel()
 }

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct NumberedKeyboardView: View {
-    let viewModel: CalculatorViewModel
     
     var body: some View {
         LazyVGrid(columns: columns, alignment: .trailing, spacing: 0) {
@@ -21,6 +20,9 @@ struct NumberedKeyboardView: View {
     }
     
     //MARK: Private
+    @EnvironmentObject
+    private var viewModel: CalculatorViewModel
+    
     private let allKeys = Array(KeyboardKey.allCases)
     private let columns = [
         GridItem(.flexible(), alignment: .leading),
@@ -46,20 +48,22 @@ extension CalculatorViewModel {
         
         case .comma:
             if rawInput.contains(".") {
-                break
+                return
             }
             
-        default:
-            rawInput += key.rawValue
+        case .empty:
+            rawInput += "0" //TODO: Replace fix for final solution
+            
+        default: break
         }
+        
+        rawInput += key.rawValue
     }
 }
 
 // MARK: Canvas
 struct NumberedKeyboardView_Previews: PreviewProvider {
     static var previews: some View {
-        NumberedKeyboardView(viewModel: viewModel)
+        NumberedKeyboardView()
     }
-    
-    private static let viewModel = CalculatorViewModel()
 }

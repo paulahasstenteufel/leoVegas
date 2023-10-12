@@ -11,7 +11,7 @@ import Combine
 class CalculatorViewModel: ObservableObject {
     
     @Published
-    var display: String = "0"
+    var display: String?
     
     func tap(_ key: OperationKey) {
         switch key {
@@ -39,11 +39,12 @@ class CalculatorViewModel: ObservableObject {
     private var nextOperation: OperationKey?
     private var nextOperand: Double?
     
-    internal var rawInput: String = ""
+    var rawInput: String = "" {
+        didSet { display = rawInput.isEmpty ? nil : rawInput }
+    }
+    
     private var result: Double = 0 {
-        didSet {
-            display = result.display
-        }
+        didSet { rawInput = result.display }
     }
     
     private func solve() -> Double? {
@@ -71,7 +72,7 @@ class CalculatorViewModel: ObservableObject {
     private func clear() {
         stackResult = 0
         result = 0
-        rawInput = ""
+        rawInput = "0"
         nextOperation = nil
         nextOperand = nil
     }
