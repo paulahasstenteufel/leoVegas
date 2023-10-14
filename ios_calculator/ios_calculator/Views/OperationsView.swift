@@ -37,19 +37,38 @@ struct OperationsView: View {
 
 extension CalculatorViewModel {
     func tap(_ key: Operation) {
-        if let value = solve() {
-            setResult(stack: value)
-            stackResult = value
-        }
-
         switch key {
+        case .clear:
+            clearAll()
+            
         case .equals:
+            if let value = solve() {
+                setResult(stack: value)
+            }
+            
             clearStacks()
 
         default:
+            clearNext = true
+            
+            if let value = solve() {
+                setResult(stack: value)
+            }
+            
             nextOperand = rawInput.number
             nextOperation = key
         }
+    }
+    
+    private func clearStacks() {
+        nextOperation = nil
+        nextOperand = nil
+        stackResult = nil
+    }
+    
+    private func clearAll() {
+        result = 0
+        clearStacks()
     }
 }
 

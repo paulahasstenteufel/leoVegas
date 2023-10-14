@@ -53,17 +53,6 @@ class CalculatorViewModel: ObservableObject {
         
         result = stack
     }
-    
-    internal func clearStacks() {
-        nextOperation = nil
-        nextOperand = nil
-        stackResult = nil
-    }
-    
-    internal func clearAll() {
-        result = 0
-        clearStacks()
-    }
 }
 
 extension String {
