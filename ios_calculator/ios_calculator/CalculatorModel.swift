@@ -8,13 +8,13 @@
 import Foundation
 
 typealias Operation = Calculator.OperationKey
-typealias Number = Calculator.KeyboardKey
+typealias Digit = Calculator.DigitKey
 
 struct Calculator {
     let fundamentalKeys: [OperationKey] = [ .add, .subtract, .multiply, .divide ]
     let supportKeys: [OperationKey] = [ .clear, .sin, .cos, .equals ]
     
-    let keyboardKeys: [KeyboardKey] = [
+    let keyboardKeys: [DigitKey] = [
         .keypad7, .keypad8, .keypad9,
         .keypad4, .keypad5, .keypad6,
         .keypad1, .keypad2, .keypad3,
@@ -50,7 +50,7 @@ extension Calculator {
         case clear = "C"
     }
 
-    enum KeyboardKey: String {
+    enum DigitKey: String {
         case keypad0 = "0"
         case keypad1 = "1"
         case keypad2 = "2"

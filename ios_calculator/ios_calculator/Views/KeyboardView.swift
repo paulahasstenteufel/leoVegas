@@ -36,7 +36,7 @@ struct KeyboardView: View {
             columns: [ flexGridItem, flexGridItem, GridItem() ],
             alignment: .trailing,
             spacing: 0,
-            content: { NumbersView(keys: viewModel.keyboardKeys) }
+            content: { DigitsView(keys: viewModel.keyboardKeys) }
         )
     }
     
@@ -54,7 +54,7 @@ struct KeyboardView: View {
 }
 
 extension CalculatorViewModel {
-    fileprivate var keyboardKeys: [Number] {
+    fileprivate var keyboardKeys: [Digit] {
         Array(calculator.keyboardKeys)
     }
     

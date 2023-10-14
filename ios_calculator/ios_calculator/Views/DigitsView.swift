@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct NumbersView: View {
-    let keys: [Number]
+struct DigitsView: View {
+    let keys: [Digit]
     
     var body: some View {
         ForEach(keys, id: \.self) { key in
@@ -22,7 +22,7 @@ struct NumbersView: View {
     private let theme = ThemeManager.shared.currentTheme //TODO: Pass down as environmentObj later
     
     @ViewBuilder
-    private func gridItem(for key: Number) -> some View {
+    private func gridItem(for key: Digit) -> some View {
         let aspect = (key == .keypad0) ? Dimension.aspectRect : nil
         let colorSet = (key == .comma) ? secondary : primary
         
@@ -39,7 +39,7 @@ struct NumbersView: View {
 }
 
 extension CalculatorViewModel {
-    func tap(_ key: Number) {
+    func tap(_ key: Digit) {
         switch key {
         case .keypad0:
             if rawInput.first == "0" {
@@ -61,7 +61,7 @@ extension CalculatorViewModel {
     }
 }
 
-private extension NumbersView {
+private extension DigitsView {
     var primary: KeyColorSet {
         .init(
             foreground: theme.primaryMedium,
