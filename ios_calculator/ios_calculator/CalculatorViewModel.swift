@@ -17,6 +17,8 @@ class CalculatorViewModel: ObservableObject {
     
     //MARK: Internal
     internal var maximumDigits: Int = 0
+    internal var clearNext: Bool = false
+    
     internal var stackResult: Double?
     internal var nextOperation: Operation?
     internal var nextOperand: Double?
@@ -72,7 +74,12 @@ extension String {
 
 extension Double {
     var display: String {
-        String(self)
+        if truncatingRemainder(dividingBy: 1) == 0 {
+            let integerStr = String(format: "%.0f", self)
+            return integerStr
+        }
+        
+        return String(self)
     }
     
     func overflows(_ maxDigits: Int) -> Bool {

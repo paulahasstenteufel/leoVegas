@@ -23,7 +23,6 @@ struct OperationsView: View {
     //MARK: Private
     @EnvironmentObject
     private var viewModel: CalculatorViewModel
-//    }
     
     private func colorSet(for key: Operation) -> KeyColorSet {
         let supportKeys: Set<Operation> = [.clear, .sin, .cos, .equals]

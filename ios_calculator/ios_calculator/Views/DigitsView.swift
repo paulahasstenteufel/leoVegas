@@ -40,6 +40,7 @@ struct DigitsView: View {
 
 extension CalculatorViewModel {
     func tap(_ key: Digit) {
+        
         switch key {
         case .keypad0:
             if rawInput.first == "0" {
@@ -57,7 +58,15 @@ extension CalculatorViewModel {
         default: break
         }
         
+        clearInputIfNeeded()
         rawInput += key.rawValue
+    }
+    
+    private func clearInputIfNeeded() {
+        if clearNext {
+            rawInput = ""
+            clearNext.toggle()
+        }
     }
 }
 
