@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct KeyboardKeyView: View {
-    let key: KeyboardKey
+    let key: Number
     
     var body: some View {
         ZStack {
@@ -34,25 +34,23 @@ struct KeyboardKeyView: View {
     @ViewBuilder
     private var shapeView: some View {
         let shape = RoundedRectangle(cornerRadius: Dimension.keyCorner)
+            .stroke(lineWidth: Dimension.line)
         
         switch key {
         case .keypad0:
             shape
-                .stroke(lineWidth: Dimension.line)
                 .aspectRatio(Dimension.aspectRect, contentMode: .fill)
             
         case .comma:
             shape
-                .stroke(lineWidth: Dimension.line)
                 .background(theme.primaryMedium)
-                .aspectRatio(contentMode: .fill)
+                .aspectRatio(Dimension.aspectSquare, contentMode: .fill)
             
         case .empty:
             Color.clear
             
         default:
             shape
-                .stroke(lineWidth: Dimension.line)
                 .aspectRatio(Dimension.aspectSquare, contentMode: .fill)
         }
     }
