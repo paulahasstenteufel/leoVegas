@@ -69,10 +69,10 @@ extension Calculator {
 fileprivate extension Double {
     func perform(_ operation: Calculator.OperationKey, by operand: Double) -> Double {
         switch operation {
-        case .add: return self + operand
-        case .subtract: return self - operand
-        case .divide: return self / operand
-        case .multiply: return self * operand
+        case .add: return operand + self
+        case .subtract: return operand - self
+        case .divide: return operand / self
+        case .multiply: return operand * self
         case .cos: return cos(self)
         case .sin: return sin(self)
         case .equals: return self
