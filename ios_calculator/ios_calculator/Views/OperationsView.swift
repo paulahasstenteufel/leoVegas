@@ -12,7 +12,8 @@ struct OperationsView: View {
     
     var body: some View {
         ForEach(keys, id: \.self) { key in
-            gridItem(for: key)
+            
+            keyView(colorSet(for: key), text: key.rawValue)
                 .onTapGesture {
                     viewModel.tap(key)
                 }
@@ -22,18 +23,16 @@ struct OperationsView: View {
     //MARK: Private
     @EnvironmentObject
     private var viewModel: CalculatorViewModel
+//    }
     
-    private func gridItem(for key: Operation) -> some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: Dimension.keyCorner)
-                .stroke(lineWidth: Dimension.line)
-                .aspectRatio(Dimension.aspectSquare, contentMode: .fill)
-
-            Text(key.rawValue)
-                .font(Fonts.heading)
-                .foregroundColor(keys.contains { $0 == .clear || $0 == .sin || $0 == .cos || $0 == .equals } ? .white : Theme.Neutral.strong)
+    private func colorSet(for key: Operation) -> KeyColorSet {
+        let supportKeys: Set<Operation> = [.clear, .sin, .cos, .equals]
+        
+        if supportKeys.contains(key) {
+            return support
         }
-        .contentShape(Rectangle())
+        
+        return fundamentals
     }
 }
 
@@ -52,5 +51,23 @@ extension CalculatorViewModel {
             nextOperand = rawInput.number
             nextOperation = key
         }
+    }
+}
+
+private extension OperationsView {
+    var fundamentals: KeyColorSet {
+        .init(
+            foreground: Theme.Neutral.strong,
+            background: Theme.Neutral.background,
+            text: Theme.Neutral.strong
+        )
+    }
+    
+    var support: KeyColorSet {
+        .init(
+            foreground: Theme.Neutral.strongest,
+            background: Theme.Neutral.strong,
+            text: Theme.Neutral.softest
+        )
     }
 }
