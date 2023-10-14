@@ -35,7 +35,7 @@ extension OperationToggleManager {
         @Published
         var isEnabled: Bool
         
-        init(_ operation: OperationKey) {
+        init(_ operation: Operation) {
             self.operation = operation
             self.isEnabled = true
         }
@@ -46,7 +46,7 @@ extension OperationToggleManager {
         }
         
         //MARK: Private
-        private let operation: OperationKey
+        private let operation: Operation
     }
 }
 
