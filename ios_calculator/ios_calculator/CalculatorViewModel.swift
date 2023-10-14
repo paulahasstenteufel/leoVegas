@@ -1,5 +1,5 @@
 //
-//  ViewModel.swift
+//  CalculatorViewModel.swift
 //  ios_calculator
 //
 //  Created by Paula Hasstenteufel Denz on 05/10/23.
@@ -15,7 +15,7 @@ class CalculatorViewModel: ObservableObject {
 
     var calculator = Calculator()
     
-    //MARK: Private
+    //MARK: Internal
     internal var maximumDigits: Int = 0
     internal var stackResult: Double?
     internal var nextOperation: Operation?
