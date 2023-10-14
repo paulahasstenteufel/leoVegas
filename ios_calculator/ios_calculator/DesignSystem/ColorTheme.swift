@@ -37,13 +37,13 @@ extension Theme {
     enum Cold {
         static let primaryDark = Color(red: 0, green: 0.196, blue: 0.498, opacity: 1)
         static let primaryMedium = Color(red: 0, green: 0.353, blue: 0.686, opacity: 1)
-        static let primaryLight = Color(red: 0, green: 0.196, blue: 0.498, opacity: 1)
+        static let primaryLight = Color(red: 0, green: 0.51, blue: 0.874, opacity: 1)
     }
 
     enum Warm {
         static let primaryDark = Color(red: 0.498, green: 0.196, blue: 0, opacity: 1)
         static let primaryMedium = Color(red: 0.686, green: 0.353, blue: 0, opacity: 1)
-        static let primaryLight = Color(red: 0.498, green: 0.196, blue: 0, opacity: 1)
+        static let primaryLight = Color(red: 0.874, green: 0.51, blue: 0, opacity: 1)
     }
 }
 

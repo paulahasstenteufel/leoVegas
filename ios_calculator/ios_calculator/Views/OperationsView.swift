@@ -23,6 +23,7 @@ struct OperationsView: View {
     //MARK: Private
     @EnvironmentObject
     private var viewModel: CalculatorViewModel
+    private let theme = ThemeManager.shared.currentTheme //TODO: Pass down as environmentObj later
     
     private func colorSet(for key: Operation) -> KeyColorSet {
         let supportKeys: Set<Operation> = [.clear, .sin, .cos, .equals]
@@ -83,8 +84,8 @@ private extension OperationsView {
     
     var support: KeyColorSet {
         .init(
-            foreground: Theme.Neutral.strongest,
-            background: Theme.Neutral.strong,
+            foreground: theme.primaryMedium,
+            background: theme.primaryLight,
             text: Theme.Neutral.softest
         )
     }
