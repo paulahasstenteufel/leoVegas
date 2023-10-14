@@ -14,7 +14,7 @@ struct CalculatorView: View {
             
             DisplayView()
             
-            NumberedKeyboardView()
+            KeyboardView()
         }
         .padding(Dimension.primary)
         .environmentObject(viewModel)
