@@ -19,7 +19,9 @@ struct DigitsView: View {
     //MARK: Private
     @EnvironmentObject
     private var viewModel: CalculatorViewModel
-    private let theme = ThemeManager.shared.currentTheme //TODO: Pass down as environmentObj later
+    
+    @EnvironmentObject
+    private var themeManager: ThemeManager
     
     @ViewBuilder
     private func gridItem(for key: Digit) -> some View {
@@ -73,15 +75,15 @@ extension CalculatorViewModel {
 private extension DigitsView {
     var primary: KeyColorSet {
         .init(
-            foreground: theme.primaryMedium,
-            text: theme.primaryMedium
+            foreground: themeManager.currentTheme.primaryMedium,
+            text: themeManager.currentTheme.primaryMedium
         )
     }
     
     var secondary: KeyColorSet {
         .init(
-            foreground: theme.primaryMedium,
-            background: theme.primaryMedium,
+            foreground: themeManager.currentTheme.primaryMedium,
+            background: themeManager.currentTheme.primaryMedium,
             text: Theme.Neutral.softest
         )
     }

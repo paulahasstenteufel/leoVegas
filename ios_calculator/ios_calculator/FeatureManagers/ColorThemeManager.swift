@@ -8,21 +8,15 @@
 import Foundation
 
 class ThemeManager: ObservableObject {
-    static let shared = ThemeManager()
     
     @Published
     var currentTheme: Theme = .cold
     
+    @Published
+    var isColdTheme: Bool = true
+    
     func toggleTheme() {
+        isColdTheme.toggle()
         currentTheme = isColdTheme ? .warm : .cold
     }
-    
-    //MARK: Private
-    private var isColdTheme: Bool {
-        currentTheme == .cold
-    }
 }
-    
-//    Button("Switch Theme") {
-//        themeManager.switchTheme()
-//    }

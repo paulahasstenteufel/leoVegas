@@ -10,6 +10,9 @@ import SwiftUI
 struct CalculatorView: View {
     
     var body: some View {
+    @StateObject
+    private var themeManager = ThemeManager()
+        
         VStack(alignment: .trailing, spacing: 10) {
             
             DisplayView()
