@@ -12,6 +12,11 @@ struct OrientationPreferenceKey: PreferenceKey {
 
     static func reduce(value: inout CGSize, nextValue: () -> CGSize) {
         let next = nextValue()
+        
+        guard value.hasChangedOrientation(to: next) else {
+            return
+        }
+        
         value.width = max(value.width, next.width)
         value.height = max(value.height, next.height)
     }
@@ -41,5 +46,15 @@ extension View {
     //TODO: Needs renaming after onAppear implementation.
     func onOrientationChange(action: @escaping (CGSize) -> Void) -> some View {
         self.modifier(SizeChange(action: action))
+    }
+}
+
+fileprivate extension CGSize {
+    func hasChangedOrientation(to next: CGSize) -> Bool {
+        return self.isLandscape != next.isLandscape
+    }
+    
+    var isLandscape: Bool {
+        return self.width > self.height
     }
 }
