@@ -12,7 +12,7 @@ struct DisplayView: View {
         display
             .lineLimit(1)
             .truncationMode(.tail)
-            .onSizeChange { size in
+            .onOrientationChange { size in
                 viewModel.calculateMaxDigits(for: size.width)
             }
     }

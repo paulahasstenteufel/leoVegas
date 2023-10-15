@@ -24,16 +24,22 @@ struct SizeChange: ViewModifier {
         content
             .background(GeometryReader { inner in
                 let size = inner.size
-                Color.clear.preference(
+                Color.clear
+                    .onAppear { action(size) }
+                    .preference(
                         key: OrientationPreferenceKey.self,
                         value: .init(width: size.width, height: size.height)
                     )
+                    .onPreferenceChange(OrientationPreferenceKey.self) { size in
+                        action(size)
+                    }
             })
     }
 }
 
 extension View {
-    func onSizeChange(action: @escaping (CGSize) -> Void) -> some View {
+    //TODO: Needs renaming after onAppear implementation.
+    func onOrientationChange(action: @escaping (CGSize) -> Void) -> some View {
         self.modifier(SizeChange(action: action))
     }
 }
