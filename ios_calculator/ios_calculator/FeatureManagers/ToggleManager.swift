@@ -7,8 +7,7 @@
 
 import Foundation
 
-class OperationToggleManager: ObservableObject {
-    static let shared = OperationToggleManager()
+class ToggleManager: ObservableObject {
     
     @Published
     var addition = Control(.add)
@@ -29,7 +28,7 @@ class OperationToggleManager: ObservableObject {
     var cos = Control(.cos)
 }
 
-extension OperationToggleManager {
+extension ToggleManager {
     class Control {
         
         @Published
@@ -50,6 +49,3 @@ extension OperationToggleManager {
     }
 }
 
-//    Button("Toggle Operation") {
-//        toggleManager.switchTheme()
-//    }

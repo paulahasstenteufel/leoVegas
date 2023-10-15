@@ -26,7 +26,7 @@
 		D3931B392AD41A5300148AFE /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3931B2D2AD41A5300148AFE /* Roboto-BoldItalic.ttf */; };
 		D3931B3B2AD41A8800148AFE /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = D3931B3A2AD41A8800148AFE /* LICENSE.txt */; };
 		D3931B3E2AD41E3700148AFE /* ColorThemeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B3D2AD41E3700148AFE /* ColorThemeManagerTests.swift */; };
-		D3931B402AD4246000148AFE /* OperationToggleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B3F2AD4246000148AFE /* OperationToggleManager.swift */; };
+		D3931B402AD4246000148AFE /* ToggleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B3F2AD4246000148AFE /* ToggleManager.swift */; };
 		D3931B432AD43DE300148AFE /* FontsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B422AD43DE300148AFE /* FontsTests.swift */; };
 		D3931B462AD574B700148AFE /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B452AD574B700148AFE /* DisplayView.swift */; };
 		D3931B482AD5B70400148AFE /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B472AD5B70400148AFE /* KeyboardView.swift */; };
@@ -35,6 +35,7 @@
 		D3954A302AD8327900C6B574 /* CalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3954A2F2AD8327900C6B574 /* CalculatorModel.swift */; };
 		D3954A342AD97ECF00C6B574 /* OperationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3954A332AD97ECF00C6B574 /* OperationsView.swift */; };
 		D3954A362ADAFA9400C6B574 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3954A352ADAFA9400C6B574 /* Keyboard.swift */; };
+		D3954A382ADB5E4700C6B574 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3954A372ADB5E4700C6B574 /* SettingsView.swift */; };
 		D3E5EFEF2ACF74EA00FB2756 /* ios_calculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5EFEE2ACF74EA00FB2756 /* ios_calculatorApp.swift */; };
 		D3E5EFF32ACF74EB00FB2756 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3E5EFF22ACF74EB00FB2756 /* Assets.xcassets */; };
 		D3E5EFF72ACF74EB00FB2756 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3E5EFF62ACF74EB00FB2756 /* Preview Assets.xcassets */; };
@@ -82,7 +83,7 @@
 		D3931B2D2AD41A5300148AFE /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
 		D3931B3A2AD41A8800148AFE /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		D3931B3D2AD41E3700148AFE /* ColorThemeManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeManagerTests.swift; sourceTree = "<group>"; };
-		D3931B3F2AD4246000148AFE /* OperationToggleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationToggleManager.swift; sourceTree = "<group>"; };
+		D3931B3F2AD4246000148AFE /* ToggleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleManager.swift; sourceTree = "<group>"; };
 		D3931B422AD43DE300148AFE /* FontsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsTests.swift; sourceTree = "<group>"; };
 		D3931B452AD574B700148AFE /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
 		D3931B472AD5B70400148AFE /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 		D3954A2F2AD8327900C6B574 /* CalculatorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorModel.swift; sourceTree = "<group>"; };
 		D3954A332AD97ECF00C6B574 /* OperationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsView.swift; sourceTree = "<group>"; };
 		D3954A352ADAFA9400C6B574 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		D3954A372ADB5E4700C6B574 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D3E5EFEB2ACF74EA00FB2756 /* ios_calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3E5EFEE2ACF74EA00FB2756 /* ios_calculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_calculatorApp.swift; sourceTree = "<group>"; };
 		D3E5EFF22ACF74EB00FB2756 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -145,7 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				D3931B1F2AD4186800148AFE /* ColorThemeManager.swift */,
-				D3931B3F2AD4246000148AFE /* OperationToggleManager.swift */,
+				D3931B3F2AD4246000148AFE /* ToggleManager.swift */,
 			);
 			path = FeatureManagers;
 			sourceTree = "<group>";
@@ -193,6 +195,7 @@
 				D3931B472AD5B70400148AFE /* KeyboardView.swift */,
 				D3931B492AD5B7A500148AFE /* DigitsView.swift */,
 				D3954A332AD97ECF00C6B574 /* OperationsView.swift */,
+				D3954A372ADB5E4700C6B574 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -424,11 +427,12 @@
 				D3954A342AD97ECF00C6B574 /* OperationsView.swift in Sources */,
 				D3954A302AD8327900C6B574 /* CalculatorModel.swift in Sources */,
 				D3E5F01C2ACF809E00FB2756 /* CalculatorViewModel.swift in Sources */,
+				D3954A382ADB5E4700C6B574 /* SettingsView.swift in Sources */,
 				D3E5F0202ACF856000FB2756 /* CalculatorView.swift in Sources */,
 				D3931B1B2AD414A200148AFE /* ColorTheme.swift in Sources */,
 				D3931B462AD574B700148AFE /* DisplayView.swift in Sources */,
 				D3931B4D2AD6273500148AFE /* Orientation.swift in Sources */,
-				D3931B402AD4246000148AFE /* OperationToggleManager.swift in Sources */,
+				D3931B402AD4246000148AFE /* ToggleManager.swift in Sources */,
 				D3931B202AD4186800148AFE /* ColorThemeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
