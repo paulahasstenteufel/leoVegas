@@ -13,10 +13,10 @@ class ThemeManager: ObservableObject {
     var currentTheme: Theme = .cold
     
     @Published
-    var isColdTheme: Bool = true
+    var isCold: Bool = true
     
     func toggleTheme() {
-        currentTheme = isColdTheme ? .warm : .cold
-        isColdTheme.toggle()
+        isCold.toggle()
+        currentTheme = isCold ? .warm : .cold
     }
 }

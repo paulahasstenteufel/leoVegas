@@ -49,19 +49,15 @@ class ControlViewModel: ObservableObject {
     
     //MARK: Private
     private func insert() {
-        guard let position = control.position else {
-            return
+        if toggleManager.fundamentals.firstIndex(of: control.operation) == nil {
+            toggleManager.fundamentals.append(control.operation)
         }
-        
-        toggleManager.fundamentals.insert(control.operation, at: position)
     }
     
     private func remove() {
-        guard let position = control.position else {
-            return
+        if let index = toggleManager.fundamentals.firstIndex(of: control.operation) {
+            toggleManager.fundamentals.remove(at: index)
         }
-        
-        toggleManager.fundamentals.remove(at: position)
     }
 }
 
@@ -86,18 +82,6 @@ struct Control {
         case .subtract: return "minus.circle.fill"
         case .multiply: return "multiply.circle.fill"
         case .divide: return "divide.circle.fill"
-//        case .sin: return "waveform.path.ecg"
-//        case .cos: return "waveform.path"
-        default: return nil
-        }
-    }
-        
-    var position: Int? {
-        switch operation {
-        case .add: return 0
-        case .subtract: return 1
-        case .multiply: return 2
-        case .divide: return 3
 //        case .sin: return "waveform.path.ecg"
 //        case .cos: return "waveform.path"
         default: return nil
