@@ -6,3 +6,28 @@
 //
 
 import Foundation
+
+class BitcoinViewModel: ObservableObject {
+    
+    @Published
+    var rate: Int?
+    
+    func getUSDConversionRate() async throws {
+        do {
+            let crypto = try await apiClient.asyncRequest()
+            rate = crypto.bitcoin.usd
+
+        } catch let error as ApiError {
+            throw error
+
+        } catch {
+            throw ApiError(
+                statusCode: 0,
+                message: "Unknown Error"
+            )
+        }
+    }
+    
+    //MARK: Private
+    private let apiClient = ApiClient()
+}
