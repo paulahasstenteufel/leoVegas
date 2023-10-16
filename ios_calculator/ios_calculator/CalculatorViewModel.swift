@@ -12,22 +12,36 @@ class CalculatorViewModel: ObservableObject {
     
     @Published
     var display: String?
+    
+    @Published
+    var showSettings: Bool
 
-    var calculator = Calculator()
+    var calculator: Calculator
+    
+    init() {
+        showSettings = false
+        calculator = Calculator()
+        
+        clearNext = false
+        maximumDigits = 0
+        
+        rawInput = ""
+        result = 0
+    }
     
     //MARK: Internal
-    internal var maximumDigits: Int = 0
-    internal var clearNext: Bool = false
+    internal var maximumDigits: Int
+    internal var clearNext: Bool
     
     internal var stackResult: Double?
     internal var nextOperation: Operation?
     internal var nextOperand: Double?
     
-    internal var rawInput: String = "" {
+    internal var rawInput: String {
         didSet { display = rawInput.isEmpty ? nil : rawInput }
     }
     
-    internal var result: Double = 0 {
+    internal var result: Double {
         didSet { rawInput = result.display }
     }
     

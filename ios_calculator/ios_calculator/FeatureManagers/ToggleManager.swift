@@ -12,8 +12,12 @@ class ToggleManager: ObservableObject {
     @Published
     var fundamentals: [Operation]
     
+    @Published
+    var support: [Operation]
+    
     init() {
-        fundamentals = Operation.allFundamental
+        fundamentals = Operation.fundamentals
+        support = Operation.support
     }
 }
 

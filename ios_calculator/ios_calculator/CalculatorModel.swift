@@ -11,9 +11,6 @@ typealias Operation = Calculator.OperationKey
 typealias Digit = Calculator.DigitKey
 
 struct Calculator {
-    let fundamentalKeys: [OperationKey] = [ .add, .subtract, .multiply, .divide ]
-    let supportKeys: [OperationKey] = [ .clear, .sin, .cos, .equals ]
-    
     let keyboardKeys: [DigitKey] = [
         .keypad7, .keypad8, .keypad9,
         .keypad4, .keypad5, .keypad6,
@@ -48,6 +45,9 @@ extension Calculator {
         case cos = "cos"
         case equals = "="
         case clear = "C"
+        
+        static var fundamentals: [Self] { [ .add, .subtract, .multiply, .divide ] }
+        static var support: [Self] { [ .clear, .sin, .cos, .equals ] }
     }
 
     enum DigitKey: String {
