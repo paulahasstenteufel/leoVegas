@@ -33,7 +33,6 @@
 		D3931B4A2AD5B7A500148AFE /* DigitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B492AD5B7A500148AFE /* DigitsView.swift */; };
 		D3931B4D2AD6273500148AFE /* Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B4C2AD6273500148AFE /* Orientation.swift */; };
 		D3954A302AD8327900C6B574 /* CalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3954A2F2AD8327900C6B574 /* CalculatorModel.swift */; };
-		D3954A342AD97ECF00C6B574 /* OperationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3954A332AD97ECF00C6B574 /* OperationsView.swift */; };
 		D3954A362ADAFA9400C6B574 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3954A352ADAFA9400C6B574 /* Keyboard.swift */; };
 		D3954A382ADB5E4700C6B574 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3954A372ADB5E4700C6B574 /* SettingsView.swift */; };
 		D3E5EFEF2ACF74EA00FB2756 /* ios_calculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5EFEE2ACF74EA00FB2756 /* ios_calculatorApp.swift */; };
@@ -90,7 +89,6 @@
 		D3931B492AD5B7A500148AFE /* DigitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitsView.swift; sourceTree = "<group>"; };
 		D3931B4C2AD6273500148AFE /* Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
 		D3954A2F2AD8327900C6B574 /* CalculatorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorModel.swift; sourceTree = "<group>"; };
-		D3954A332AD97ECF00C6B574 /* OperationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsView.swift; sourceTree = "<group>"; };
 		D3954A352ADAFA9400C6B574 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		D3954A372ADB5E4700C6B574 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D3E5EFEB2ACF74EA00FB2756 /* ios_calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,7 +192,6 @@
 				D3931B452AD574B700148AFE /* DisplayView.swift */,
 				D3931B472AD5B70400148AFE /* KeyboardView.swift */,
 				D3931B492AD5B7A500148AFE /* DigitsView.swift */,
-				D3954A332AD97ECF00C6B574 /* OperationsView.swift */,
 				D3954A372ADB5E4700C6B574 /* SettingsView.swift */,
 			);
 			path = Views;
@@ -424,7 +421,6 @@
 				D3954A362ADAFA9400C6B574 /* Keyboard.swift in Sources */,
 				D3931B1C2AD414A200148AFE /* Dimensions.swift in Sources */,
 				D3931B482AD5B70400148AFE /* KeyboardView.swift in Sources */,
-				D3954A342AD97ECF00C6B574 /* OperationsView.swift in Sources */,
 				D3954A302AD8327900C6B574 /* CalculatorModel.swift in Sources */,
 				D3E5F01C2ACF809E00FB2756 /* CalculatorViewModel.swift in Sources */,
 				D3954A382ADB5E4700C6B574 /* SettingsView.swift in Sources */,

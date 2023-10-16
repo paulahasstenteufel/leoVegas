@@ -29,6 +29,13 @@ struct KeyboardView: View {
     //MARK: Private
     @EnvironmentObject
     private var viewModel: CalculatorViewModel
+    
+    @EnvironmentObject
+    private var themeManager: ThemeManager
+    
+    @EnvironmentObject
+    private var toggleManager: ToggleManager
+    
     private let flexGridItem = GridItem(.flexible(), spacing: 0, alignment: .leading)
     
     private var numbersGrid: some View {
@@ -42,27 +49,82 @@ struct KeyboardView: View {
     
     private var fundamentalsGrid: some View {
         LazyVStack(alignment: .trailing, spacing: 0) {
-            OperationsView(keys: viewModel.fundamentalKeys)
+            ForEach(toggleManager.fundamentals, id: \.self) { key in
+                keyView(fundamentals, text: key.rawValue)
+                    .onTapGesture {
+                        viewModel.tap(key)
+                    }
+            }
         }
     }
     
     private var supportGrid: some View {
         LazyHStack(alignment: .top, spacing: 0) {
-            OperationsView(keys: viewModel.supportKeys)
+            ForEach(toggleManager.support, id: \.self) { key in
+                keyView(support, text: key.rawValue)
+                    .onTapGesture {
+                        viewModel.tap(key)
+                    }
+            }
         }
     }
 }
 
-extension CalculatorViewModel {
-    fileprivate var keyboardKeys: [Digit] {
-        Array(calculator.keyboardKeys)
+fileprivate extension CalculatorViewModel {
+    var keyboardKeys: [Digit] {
+        calculator.keyboardKeys
     }
     
-    fileprivate var supportKeys: [Operation] {
-        Array(calculator.supportKeys)
+    func tap(_ key: Operation) {
+        switch key {
+        case .clear:
+            clearAll()
+            
+        case .equals:
+            if let value = solve() {
+                setResult(stack: value)
+            }
+            
+            clearStacks()
+
+        default:
+            clearNext = true
+            
+            if let value = solve() {
+                setResult(stack: value)
+            }
+            
+            nextOperand = rawInput.number
+            nextOperation = key
+        }
     }
     
-    fileprivate var fundamentalKeys: [Operation] {
-        Array(calculator.fundamentalKeys)
+    func clearStacks() {
+        nextOperation = nil
+        nextOperand = nil
+        stackResult = nil
+    }
+    
+    func clearAll() {
+        result = 0
+        clearStacks()
+    }
+}
+
+private extension KeyboardView {
+    var fundamentals: KeyColorSet {
+        .init(
+            foreground: Theme.Neutral.strong,
+            background: Theme.Neutral.background,
+            text: Theme.Neutral.strong
+        )
+    }
+    
+    var support: KeyColorSet {
+        .init(
+            foreground: themeManager.currentTheme.primaryMedium,
+            background: themeManager.currentTheme.primaryLight,
+            text: Theme.Neutral.softest
+        )
     }
 }
