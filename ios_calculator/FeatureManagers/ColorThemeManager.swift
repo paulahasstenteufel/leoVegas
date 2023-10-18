@@ -17,6 +17,6 @@ class ThemeManager: ObservableObject {
     
     func toggleTheme() {
         isCold.toggle()
-        currentTheme = isCold ? .warm : .cold
+        currentTheme = isCold ? .cold : .warm
     }
 }

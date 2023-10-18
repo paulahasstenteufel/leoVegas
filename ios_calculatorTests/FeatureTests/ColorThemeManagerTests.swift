@@ -9,18 +9,24 @@ import XCTest
 @testable import ios_calculator
 
 class ThemeManagerTests: XCTestCase {
+    
+    var themeManager: ThemeManager!
+
+    override func setUp() {
+        super.setUp()
+        themeManager = ThemeManager()
+    }
+    
     func testThemeSwitching() {
-        let themeManager = ThemeManager.shared
-        let baseTheme = Theme.cold
+        themeManager.toggleTheme()
+        XCTAssertEqual(themeManager.currentTheme, .warm, "Base theme should have changed from Cold to Warm.")
 
         themeManager.toggleTheme()
-        XCTAssertNotEqual(baseTheme, themeManager.currentTheme, "Base theme should have changed from Cold to Warm.")
-
-        themeManager.toggleTheme()
-        XCTAssertEqual(baseTheme, themeManager.currentTheme, "Base theme should have changed from Warm back to Cold.")
+        XCTAssertEqual(themeManager.currentTheme, .cold, "Base theme should have changed from Warm back to Cold.")
     }
     
     override func tearDown() {
-        ThemeManager.shared.currentTheme = .cold
+        themeManager = nil
+        super.tearDown()
     }
 }
