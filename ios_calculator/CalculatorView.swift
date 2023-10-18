@@ -26,7 +26,7 @@ struct CalculatorView: View {
     private var cryptoViewModel = CryptoViewModel()
     
     @StateObject
-    private var toggleManager = ToggleManager()
+    private var toggleManager = FeatureToggleManager()
     
     @StateObject
     private var themeManager = ThemeManager()

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D377ADCA2AE01B8D00C2703C /* ToggleControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D377ADC92AE01B8D00C2703C /* ToggleControlViewModel.swift */; };
+		D377ADCC2AE01BC600C2703C /* ToggleControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D377ADCB2AE01BC600C2703C /* ToggleControl.swift */; };
+		D377ADCE2AE01C1D00C2703C /* ToggleControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D377ADCD2AE01C1D00C2703C /* ToggleControlView.swift */; };
 		D3931B162AD32EFE00148AFE /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B152AD32EFE00148AFE /* ViewModelTests.swift */; };
 		D3931B1B2AD414A200148AFE /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B182AD414A200148AFE /* ColorTheme.swift */; };
 		D3931B1C2AD414A200148AFE /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B192AD414A200148AFE /* Dimensions.swift */; };
@@ -26,7 +29,7 @@
 		D3931B392AD41A5300148AFE /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3931B2D2AD41A5300148AFE /* Roboto-BoldItalic.ttf */; };
 		D3931B3B2AD41A8800148AFE /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = D3931B3A2AD41A8800148AFE /* LICENSE.txt */; };
 		D3931B3E2AD41E3700148AFE /* ColorThemeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B3D2AD41E3700148AFE /* ColorThemeManagerTests.swift */; };
-		D3931B402AD4246000148AFE /* ToggleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B3F2AD4246000148AFE /* ToggleManager.swift */; };
+		D3931B402AD4246000148AFE /* FeatureToggleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B3F2AD4246000148AFE /* FeatureToggleManager.swift */; };
 		D3931B432AD43DE300148AFE /* FontsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B422AD43DE300148AFE /* FontsTests.swift */; };
 		D3931B462AD574B700148AFE /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B452AD574B700148AFE /* DisplayView.swift */; };
 		D3931B482AD5B70400148AFE /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B472AD5B70400148AFE /* KeyboardView.swift */; };
@@ -66,6 +69,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D377ADC92AE01B8D00C2703C /* ToggleControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleControlViewModel.swift; sourceTree = "<group>"; };
+		D377ADCB2AE01BC600C2703C /* ToggleControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleControl.swift; sourceTree = "<group>"; };
+		D377ADCD2AE01C1D00C2703C /* ToggleControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleControlView.swift; sourceTree = "<group>"; };
 		D3931B152AD32EFE00148AFE /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
 		D3931B182AD414A200148AFE /* ColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		D3931B192AD414A200148AFE /* Dimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
@@ -85,7 +91,7 @@
 		D3931B2D2AD41A5300148AFE /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
 		D3931B3A2AD41A8800148AFE /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		D3931B3D2AD41E3700148AFE /* ColorThemeManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeManagerTests.swift; sourceTree = "<group>"; };
-		D3931B3F2AD4246000148AFE /* ToggleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleManager.swift; sourceTree = "<group>"; };
+		D3931B3F2AD4246000148AFE /* FeatureToggleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureToggleManager.swift; sourceTree = "<group>"; };
 		D3931B422AD43DE300148AFE /* FontsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsTests.swift; sourceTree = "<group>"; };
 		D3931B452AD574B700148AFE /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
 		D3931B472AD5B70400148AFE /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
@@ -136,6 +142,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D377ADC82AE01B6A00C2703C /* ToggleControl */ = {
+			isa = PBXGroup;
+			children = (
+				D377ADC92AE01B8D00C2703C /* ToggleControlViewModel.swift */,
+				D377ADCB2AE01BC600C2703C /* ToggleControl.swift */,
+				D377ADCD2AE01C1D00C2703C /* ToggleControlView.swift */,
+			);
+			path = ToggleControl;
+			sourceTree = "<group>";
+		};
 		D3931B172AD4147800148AFE /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,7 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				D3931B1F2AD4186800148AFE /* ColorThemeManager.swift */,
-				D3931B3F2AD4246000148AFE /* ToggleManager.swift */,
+				D3931B3F2AD4246000148AFE /* FeatureToggleManager.swift */,
 			);
 			path = FeatureManagers;
 			sourceTree = "<group>";
@@ -252,6 +268,7 @@
 		D3E5EFED2ACF74EA00FB2756 /* ios_calculator */ = {
 			isa = PBXGroup;
 			children = (
+				D377ADC82AE01B6A00C2703C /* ToggleControl */,
 				D3DBB4622ADDF6A0003C1FE9 /* BitcoinConversion */,
 				D3DBB45F2ADDEBE6003C1FE9 /* Networking */,
 				D3931B4B2AD6271400148AFE /* Helpers */,
@@ -446,8 +463,11 @@
 				D3DBB4612ADDEDF6003C1FE9 /* ApiClient.swift in Sources */,
 				D3954A362ADAFA9400C6B574 /* Keyboard.swift in Sources */,
 				D3931B1C2AD414A200148AFE /* Dimensions.swift in Sources */,
+				D377ADCE2AE01C1D00C2703C /* ToggleControlView.swift in Sources */,
+				D377ADCA2AE01B8D00C2703C /* ToggleControlViewModel.swift in Sources */,
 				D3931B482AD5B70400148AFE /* KeyboardView.swift in Sources */,
 				D3DBB4662ADDF8EB003C1FE9 /* BitcoinView.swift in Sources */,
+				D377ADCC2AE01BC600C2703C /* ToggleControl.swift in Sources */,
 				D3954A302AD8327900C6B574 /* CalculatorModel.swift in Sources */,
 				D3E5F01C2ACF809E00FB2756 /* CalculatorViewModel.swift in Sources */,
 				D3954A382ADB5E4700C6B574 /* SettingsView.swift in Sources */,
@@ -455,7 +475,7 @@
 				D3931B1B2AD414A200148AFE /* ColorTheme.swift in Sources */,
 				D3931B462AD574B700148AFE /* DisplayView.swift in Sources */,
 				D3931B4D2AD6273500148AFE /* Orientation.swift in Sources */,
-				D3931B402AD4246000148AFE /* ToggleManager.swift in Sources */,
+				D3931B402AD4246000148AFE /* FeatureToggleManager.swift in Sources */,
 				D3DBB4642ADDF6F4003C1FE9 /* CryptoViewModel.swift in Sources */,
 				D3931B202AD4186800148AFE /* ColorThemeManager.swift in Sources */,
 			);

@@ -34,7 +34,7 @@ struct KeyboardView: View {
     private var themeManager: ThemeManager
     
     @EnvironmentObject
-    private var toggleManager: ToggleManager
+    private var toggleManager: FeatureToggleManager
     
     private let flexGridItem = GridItem(.flexible(), spacing: 0, alignment: .leading)
     
