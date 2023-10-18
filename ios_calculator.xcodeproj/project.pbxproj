@@ -10,6 +10,7 @@
 		D377ADCA2AE01B8D00C2703C /* ToggleControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D377ADC92AE01B8D00C2703C /* ToggleControlViewModel.swift */; };
 		D377ADCC2AE01BC600C2703C /* ToggleControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D377ADCB2AE01BC600C2703C /* ToggleControl.swift */; };
 		D377ADCE2AE01C1D00C2703C /* ToggleControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D377ADCD2AE01C1D00C2703C /* ToggleControlView.swift */; };
+		D377ADD12AE01F1900C2703C /* IconToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D377ADD02AE01F1900C2703C /* IconToggleStyle.swift */; };
 		D3931B162AD32EFE00148AFE /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B152AD32EFE00148AFE /* ViewModelTests.swift */; };
 		D3931B1B2AD414A200148AFE /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B182AD414A200148AFE /* ColorTheme.swift */; };
 		D3931B1C2AD414A200148AFE /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3931B192AD414A200148AFE /* Dimensions.swift */; };
@@ -72,6 +73,7 @@
 		D377ADC92AE01B8D00C2703C /* ToggleControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleControlViewModel.swift; sourceTree = "<group>"; };
 		D377ADCB2AE01BC600C2703C /* ToggleControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleControl.swift; sourceTree = "<group>"; };
 		D377ADCD2AE01C1D00C2703C /* ToggleControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleControlView.swift; sourceTree = "<group>"; };
+		D377ADD02AE01F1900C2703C /* IconToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconToggleStyle.swift; sourceTree = "<group>"; };
 		D3931B152AD32EFE00148AFE /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
 		D3931B182AD414A200148AFE /* ColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		D3931B192AD414A200148AFE /* Dimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
@@ -150,6 +152,14 @@
 				D377ADCD2AE01C1D00C2703C /* ToggleControlView.swift */,
 			);
 			path = ToggleControl;
+			sourceTree = "<group>";
+		};
+		D377ADCF2AE01EDF00C2703C /* CustomStyles */ = {
+			isa = PBXGroup;
+			children = (
+				D377ADD02AE01F1900C2703C /* IconToggleStyle.swift */,
+			);
+			path = CustomStyles;
 			sourceTree = "<group>";
 		};
 		D3931B172AD4147800148AFE /* DesignSystem */ = {
@@ -268,6 +278,7 @@
 		D3E5EFED2ACF74EA00FB2756 /* ios_calculator */ = {
 			isa = PBXGroup;
 			children = (
+				D377ADCF2AE01EDF00C2703C /* CustomStyles */,
 				D377ADC82AE01B6A00C2703C /* ToggleControl */,
 				D3DBB4622ADDF6A0003C1FE9 /* BitcoinConversion */,
 				D3DBB45F2ADDEBE6003C1FE9 /* Networking */,
@@ -477,6 +488,7 @@
 				D3931B4D2AD6273500148AFE /* Orientation.swift in Sources */,
 				D3931B402AD4246000148AFE /* FeatureToggleManager.swift in Sources */,
 				D3DBB4642ADDF6F4003C1FE9 /* CryptoViewModel.swift in Sources */,
+				D377ADD12AE01F1900C2703C /* IconToggleStyle.swift in Sources */,
 				D3931B202AD4186800148AFE /* ColorThemeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,9 +18,6 @@ struct SettingsView: View {
             HStack(alignment: .bottom, spacing: 10) {
                 SectionView(title: "Theme Manager") {
                     themeView
-                        .onTapGesture {
-                            themeManager.toggleTheme()
-                        }
                 }
                 
                 SectionView(title: "Calculator Manager") {
@@ -44,11 +41,12 @@ struct SettingsView: View {
     
     private var themeView: some View {
         Toggle(
-            isOn: $themeManager.isCold,
+            isOn: $themeManager.isWarm,
             label: {
-                Text("Change Theme Colors")
+                Text("Theme")
             }
         )
+        .toggleStyle(SymbolToggleStyle())
     }
     
     private func controlView(for operation: Operation) -> some View {
@@ -59,30 +57,33 @@ struct SettingsView: View {
     }
 }
 
-struct SectionView<Content: View>: View {
-    let title: String
-    let content: () -> Content
-    
-    var body: some View {
-        ZStack(alignment: .trailing) {
-            RoundedRectangle(cornerRadius: Dimension.keyCorner)
-                .stroke(lineWidth: Dimension.line)
-                .foregroundColor(Theme.Neutral.background)
-                .background(Theme.Neutral.soft)
-
-            titleView
+private extension SettingsView {
+    struct SectionView<Content: View>: View {
+        let title: String
+        let content: () -> Content
+        
+        var body: some View {
+            ZStack(alignment: .trailing) {
+                RoundedRectangle(cornerRadius: Dimension.keyCorner)
+                    .stroke(lineWidth: Dimension.line)
+                    .foregroundColor(Theme.Neutral.background)
+                    .background(Theme.Neutral.soft)
+                
+                titleView
+            }
+            .padding(Dimension.small)
+            .fixedSize()
         }
-        .padding(Dimension.small)
-    }
-    
-    //MARK: Private
-    private var titleView: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text(title)
-                .font(Fonts.heading)
-                .padding()
-            
-            content()
+        
+        //MARK: Private
+        private var titleView: some View {
+            VStack(alignment: .leading, spacing: 10) {
+                Text(title)
+                    .font(Fonts.heading)
+                    .padding()
+                
+                content()
+            }
         }
     }
 }
