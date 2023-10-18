@@ -89,5 +89,5 @@ struct CryptoResponse: Codable {
 }
 
 struct BitcoinConversionRate: Codable {
-    let usd: Int
+    let usd: Double
 }
