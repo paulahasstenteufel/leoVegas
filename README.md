@@ -1,5 +1,12 @@
 # iOS Developer Assignment: Calculator
 
+## Planned UI and Interaction
+
+Other than the more straightforward capabilities of the calculator:
+
+- The settings was intended to be visible only in Landscape mode.
+- The bitcoin interaction was designed to keep a 5 minute period cache and convert using the same display, adding only a button to do so. The displayed value also shows the currency for clarity.
+
 ## About this project
 
 This is a simple calculator intended to demonstrate the following:
@@ -34,7 +41,6 @@ I was not able to finish all the requirements, but I'll be happy to do so over t
 I took the liberty to separate the tasks in different priority levels, so I can present a bit of my perception on this matter as well:
 
 **Critical**:
-- Add Bitcoin operation and Design
 - Add tests
 
 **High**:
