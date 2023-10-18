@@ -13,6 +13,7 @@ struct CalculatorView: View {
         contentView
             .padding(Dimension.primary)
             .environmentObject(viewModel)
+            .environmentObject(bitcoinViewModel)
             .environmentObject(themeManager)
             .environmentObject(toggleManager)
     }
@@ -22,6 +23,9 @@ struct CalculatorView: View {
     private var viewModel = CalculatorViewModel()
     
     @StateObject
+    private var bitcoinViewModel = BitcoinViewModel()
+    
+    @StateObject
     private var toggleManager = ToggleManager()
     
     @StateObject
@@ -29,7 +33,7 @@ struct CalculatorView: View {
     
     private var contentView: some View {
         VStack(alignment: .trailing, spacing: 10) {
-            DisplayView()
+            displayView
             
             HStack {
                 if viewModel.showSettings {
@@ -41,6 +45,14 @@ struct CalculatorView: View {
         }
         .onOrientationChange { size in
             viewModel.shouldPresentSettings(size)
+        }
+    }
+    
+    private var displayView: some View {
+        HStack(spacing: 10) {
+            DisplayView()
+            
+            BitcoinView()
         }
     }
 }

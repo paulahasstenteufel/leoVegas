@@ -16,14 +16,13 @@ class CalculatorViewModel: ObservableObject {
     @Published
     var showSettings: Bool
 
-    var calculator: Calculator
+    let calculator = Calculator()
     
     init() {
         showSettings = false
-        calculator = Calculator()
         
         clearNext = false
-        maximumDigits = 0
+        maximumDigits = 100
         
         rawInput = ""
         result = 0
@@ -57,6 +56,12 @@ class CalculatorViewModel: ObservableObject {
             //TODO: Handle error
             return nil
         }
+    }
+    
+    internal func clearStacks() {
+        nextOperation = nil
+        nextOperand = nil
+        stackResult = nil
     }
     
     internal func setResult(stack: Double) {
