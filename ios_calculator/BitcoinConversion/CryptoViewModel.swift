@@ -1,5 +1,5 @@
 //
-//  BitcoinViewModel.swift
+//  CryptoViewModel.swift
 //  ios_calculator
 //
 //  Created by Paula Hasstenteufel Denz on 16/10/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BitcoinViewModel: ObservableObject {
+class CryptoViewModel: ObservableObject {
     
     @Published
     var rateAvailable: Bool = false

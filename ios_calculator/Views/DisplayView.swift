@@ -13,13 +13,13 @@ struct DisplayView: View {
             .lineLimit(1)
             .truncationMode(.tail)
             .onOrientationChange { size in
-                viewModel.calculateMaxDigits(for: size.width)
+                calculatorViewModel.calculateMaxDigits(for: size.width)
             }
     }
     
     //MARK: Private
     @EnvironmentObject
-    private var viewModel: CalculatorViewModel
+    private var calculatorViewModel: CalculatorViewModel
     
     private var display: some View {
         ZStack(alignment: .trailing) {
@@ -33,7 +33,7 @@ struct DisplayView: View {
     }
     
     private var textView: some View {
-        Text(viewModel.display ?? "0")
+        Text(calculatorViewModel.display ?? "0")
             .font(Fonts.display)
             .padding(Dimension.small)
             .foregroundColor(Theme.Neutral.strongest)

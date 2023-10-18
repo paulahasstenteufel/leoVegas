@@ -28,7 +28,7 @@ struct KeyboardView: View {
     
     //MARK: Private
     @EnvironmentObject
-    private var viewModel: CalculatorViewModel
+    private var calculatorViewModel: CalculatorViewModel
     
     @EnvironmentObject
     private var themeManager: ThemeManager
@@ -43,7 +43,7 @@ struct KeyboardView: View {
             columns: [ flexGridItem, flexGridItem, GridItem() ],
             alignment: .trailing,
             spacing: 0,
-            content: { DigitsView(keys: viewModel.keyboardKeys) }
+            content: { DigitsView(keys: calculatorViewModel.keyboardKeys) }
         )
     }
     
@@ -52,7 +52,7 @@ struct KeyboardView: View {
             ForEach(toggleManager.fundamentals, id: \.self) { key in
                 keyView(fundamentals, text: key.rawValue)
                     .onTapGesture {
-                        viewModel.tap(key)
+                        calculatorViewModel.tap(key)
                     }
             }
         }
@@ -63,7 +63,7 @@ struct KeyboardView: View {
             ForEach(toggleManager.support, id: \.self) { key in
                 keyView(support, text: key.rawValue)
                     .onTapGesture {
-                        viewModel.tap(key)
+                        calculatorViewModel.tap(key)
                     }
             }
         }

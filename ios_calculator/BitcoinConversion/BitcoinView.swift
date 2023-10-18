@@ -12,6 +12,9 @@ struct BitcoinView: View {
     var body: some View {
         Button(action: setResult) {
             iconView
+//                .overlay {
+//                    overlay
+//                }
         }
         .fixedSize()
         .onAppear {
@@ -21,23 +24,30 @@ struct BitcoinView: View {
     
     //MARK: Private
     @EnvironmentObject
-    private var viewModel: CalculatorViewModel
+    private var calculatorViewModel: CalculatorViewModel
     
     @EnvironmentObject
-    private var bitcoinViewModel: BitcoinViewModel
+    private var cryptoViewModel: CryptoViewModel
     
     @State
     private var priceFetchingTask: Task<(), Never> = Task { }
     
     private var iconView: some View {
-        let colors = bitcoinViewModel.rateAvailable ? enabled : disabled
+        let colors = cryptoViewModel.rateAvailable ? enabled : disabled
         return keyView(colors, text: "₿")
     }
     
+//    private var overlay: some View {
+//        ProgressView()
+//            .progressViewStyle(CircularProgressViewStyle())
+//            .foregroundColor(Theme.Neutral.strong)
+//            .opacity(priceFetchingTask.isCancelled ? 1 : 0)
+//            .fixedSize()
+//    }
     
     private func setResult() {
-        if let price = bitcoinViewModel.latest, price.updated.inLessThan(300) {
-            viewModel.update(with: price.rate)
+        if let price = cryptoViewModel.latest, price.updated.inLessThan(300) {
+            calculatorViewModel.update(with: price.rate)
             return
         }
         
@@ -46,7 +56,7 @@ struct BitcoinView: View {
     
     private func fetchPrice() -> Task<(), Never> {
         Task {
-            do { try await bitcoinViewModel.getUSDConversionRate() }
+            do { try await cryptoViewModel.getUSDConversionRate() }
             
             catch {
                 print(error)

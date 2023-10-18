@@ -12,18 +12,18 @@ struct CalculatorView: View {
     var body: some View {
         contentView
             .padding(Dimension.primary)
-            .environmentObject(viewModel)
-            .environmentObject(bitcoinViewModel)
+            .environmentObject(calculatorViewModel)
+            .environmentObject(cryptoViewModel)
             .environmentObject(themeManager)
             .environmentObject(toggleManager)
     }
     
     //MARK: Private
     @StateObject
-    private var viewModel = CalculatorViewModel()
+    private var calculatorViewModel = CalculatorViewModel()
     
     @StateObject
-    private var bitcoinViewModel = BitcoinViewModel()
+    private var cryptoViewModel = CryptoViewModel()
     
     @StateObject
     private var toggleManager = ToggleManager()
@@ -36,7 +36,7 @@ struct CalculatorView: View {
             displayView
             
             HStack {
-                if viewModel.showSettings {
+                if calculatorViewModel.showSettings {
                     SettingsView()
                 }
                 
@@ -44,7 +44,7 @@ struct CalculatorView: View {
             }
         }
         .onOrientationChange { size in
-            viewModel.shouldPresentSettings(size)
+            calculatorViewModel.shouldPresentSettings(size)
         }
     }
     

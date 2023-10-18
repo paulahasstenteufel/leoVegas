@@ -18,7 +18,7 @@ struct DigitsView: View {
     
     //MARK: Private
     @EnvironmentObject
-    private var viewModel: CalculatorViewModel
+    private var calculatorViewModel: CalculatorViewModel
     
     @EnvironmentObject
     private var themeManager: ThemeManager
@@ -34,7 +34,7 @@ struct DigitsView: View {
         } else {
             keyView(colorSet, text: key.rawValue, aspect: aspect)
                 .onTapGesture {
-                    viewModel.tap(key)
+                    calculatorViewModel.tap(key)
                 }
         }
     }
