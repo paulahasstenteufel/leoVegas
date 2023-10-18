@@ -86,6 +86,7 @@ fileprivate extension CalculatorViewModel {
             }
             
             clearStacks()
+            clearNext = true
 
         default:
             clearNext = true
@@ -97,12 +98,6 @@ fileprivate extension CalculatorViewModel {
             nextOperand = rawInput.number
             nextOperation = key
         }
-    }
-    
-    func clearStacks() {
-        nextOperation = nil
-        nextOperand = nil
-        stackResult = nil
     }
     
     func clearAll() {

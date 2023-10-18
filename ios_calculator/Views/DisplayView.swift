@@ -47,10 +47,3 @@ extension CalculatorViewModel {
         maximumDigits = Int(max)
     }
 }
-
-// MARK: Canvas
-struct DisplayView_Previews: PreviewProvider {
-    static var previews: some View {
-        DisplayView()
-    }
-}
