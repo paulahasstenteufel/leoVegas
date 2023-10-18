@@ -10,12 +10,16 @@ import Foundation
 class BitcoinViewModel: ObservableObject {
     
     @Published
-    var rate: Int?
+    var rateAvailable: Bool = false
     
+    var latest: BitcoinPrice?
+    
+    @MainActor
     func getUSDConversionRate() async throws {
         do {
             let crypto = try await apiClient.asyncRequest()
-            rate = crypto.bitcoin.usd
+            latest = BitcoinPrice(rate: crypto.bitcoin.usd, updated: .now)
+            rateAvailable = true
 
         } catch let error as ApiError {
             throw error
@@ -30,4 +34,23 @@ class BitcoinViewModel: ObservableObject {
     
     //MARK: Private
     private let apiClient = ApiClient()
+}
+
+struct BitcoinPrice {
+    let rate: Double
+    let updated: Date
+    let currency: Currency = .usd
+    
+    enum Currency {
+        case usd
+    }
+}
+
+extension Date {
+    func inLessThan(_ seconds: Double) -> Bool {
+        let now = Date()
+        let timeInterval = now.timeIntervalSince(self)
+        
+        return timeInterval < seconds
+    }
 }
