@@ -60,10 +60,10 @@ class CalculatorViewModel: ObservableObject {
     }
     
     internal func setResult(stack: Double) {
-        guard stack.overflows(maximumDigits) else {
-            //TODO: Handle overflow, what is the default calculator behavior?
-            return
-        }
+//        guard stack.overflows(maximumDigits) else {
+//            //TODO: Handle overflow, what is the default calculator behavior?
+//            return
+//        }
         
         result = stack
     }
