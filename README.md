@@ -34,7 +34,6 @@ I was not able to finish all the requirements, but I'll be happy to do so over t
 I took the liberty to separate the tasks in different priority levels, so I can present a bit of my perception on this matter as well:
 
 **Critical**:
-- Add network layer 
 - Add Bitcoin operation and Design
 - Add tests
 
