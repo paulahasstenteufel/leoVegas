@@ -17,12 +17,17 @@ class ThemeManagerTests: XCTestCase {
         themeManager = ThemeManager()
     }
     
+    func testInitialState() {
+        XCTAssertEqual(themeManager.currentTheme, .cold, "Initial theme should be Cold")
+        XCTAssertTrue(themeManager.isCold, "Initial state of flag 'isCold' should be true")
+    }
+
     func testThemeSwitching() {
         themeManager.toggleTheme()
-        XCTAssertEqual(themeManager.currentTheme, .warm, "Base theme should have changed from Cold to Warm.")
+        XCTAssertEqual(themeManager.currentTheme, .warm, "Theme should have changed from Cold to Warm.")
 
         themeManager.toggleTheme()
-        XCTAssertEqual(themeManager.currentTheme, .cold, "Base theme should have changed from Warm back to Cold.")
+        XCTAssertEqual(themeManager.currentTheme, .cold, "Theme should have changed from Warm back to Cold.")
     }
     
     override func tearDown() {
